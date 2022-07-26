@@ -15,6 +15,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Database setup 
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.yzk7a.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`;
+
+mongoose.connect(uri)
+.then(console.log("database connected"))
+.catch(e=> console.error(e))
 
 // Routes setup
 app.get('/',(req,res)=>{
