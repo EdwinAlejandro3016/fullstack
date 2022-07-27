@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+const axios = require('axios');
 require('dotenv').config();
 
 //cors
@@ -22,8 +23,12 @@ mongoose.connect(uri)
 .catch(e=> console.error(e))
 
 // Routes setup
-app.get('/',(req,res)=>{
-    res.send('HELLO FULLSTACK')
+app.get('/',async(req,res)=>{
+    const name = "hulk"
+    const response = await axios.get(`${process.env.API}/v1/public/characters?ts=${process.env.TS}&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`)
+    const data = await response.data.data;
+
+    res.send(data)
 })
 
 const port = process.env.PORT || 5000;
