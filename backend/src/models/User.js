@@ -21,6 +21,9 @@ const UserSchema = new Schema({
         type: Number,
         required: true
     },
+    heroes: {
+        type: Array
+    },
     lastTimeSystem: {
         type: Date,
         default: Date.now

@@ -23,13 +23,14 @@ mongoose.connect(uri)
 .catch(e=> console.error(e))
 
 // Routes setup
-app.get('/',async(req,res)=>{
-    const name = "hulk"
-    const response = await axios.get(`${process.env.API}/v1/public/characters?ts=${process.env.TS}&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`)
-    const data = await response.data.data;
+app.use('/api/auth',require('./routes/auth'));
+// app.get('/',async(req,res)=>{
+//     const name = "hulk"
+//     const response = await axios.get(`${process.env.API}/v1/public/characters?ts=${process.env.TS}&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`)
+//     const data = await response.data.data;
 
-    res.send(data)
-})
+//     res.send(data)
+// })
 
 const port = process.env.PORT || 5000;
 
