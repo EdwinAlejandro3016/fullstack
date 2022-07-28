@@ -13,31 +13,9 @@ const SuperHero = new Schema({
         type: String,
         required: true
     },
-    modified: {
-        type: Date,
-        required: true
-    },
-    resourceURI: {
-        type: Array
-    },
-    urls: {
-        type: Array
-    },
     thumbnail: {
-        type: String,
-        required: true
-    },
-    comics: {
-        type: Array
-    },
-    stories: {
-        type: Array
-    },
-    events: {
-        type: Array
-    },
-    series: {
-        type: Array
+        type: Object,
+        required:true
     }
 })
 

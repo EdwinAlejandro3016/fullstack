@@ -61,7 +61,7 @@ exports.signup = async(req,res)=>{
             data: savedUser
         })
     }catch(error){
-        res.status(400).json({error}) 
+        res.status(400).json({error: error.message}) 
     }
     
 }
@@ -75,7 +75,23 @@ exports.deleteUser = async(req,res)=>{
             message: 'user eliminado correctamente'
         })
     }catch(error){
-        res.status(400).json({error})
+        res.status(400).json({error: error.message})
+    }
+}
+
+exports.updateUser = async(req,res)=>{
+    const {id} = req.params;
+    try{
+        const userDB = await User.findOne({_id:id});
+        const {name=userDB.name,role=userDB.role,lastTimeSystem=userDB.lastTimeSystem} = req.body;
+        const userUpdated = await User.findByIdAndUpdate({_id: id},{name,role,lastTimeSystem}); 
+        res.status(200).json({
+            message: 'usuario actualizado correctamente'
+        })
+    }catch(e){
+        res.status(400).json({
+            error: e.message
+        })
     }
 }
 

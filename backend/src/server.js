@@ -24,13 +24,7 @@ mongoose.connect(uri)
 
 // Routes setup
 app.use('/api/auth',require('./routes/auth'));
-// app.get('/',async(req,res)=>{
-//     const name = "hulk"
-//     const response = await axios.get(`${process.env.API}/v1/public/characters?ts=${process.env.TS}&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`)
-//     const data = await response.data.data;
-
-//     res.send(data)
-// })
+app.use('/api/heroes',require('./routes/superHero'));
 
 const port = process.env.PORT || 5000;
 
