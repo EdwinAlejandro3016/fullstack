@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { Heroe } from 'src/app/models/heroe.model';
 import { CharactersService } from 'src/app/services/characters.service';
 
 @Component({
@@ -8,19 +9,8 @@ import { CharactersService } from 'src/app/services/characters.service';
   styleUrls: ['./data-result.component.scss']
 })
 export class DataResultComponent implements OnInit {
-  data: {}[] = [
-      {
-          id_Api: 1009351,
-          name: "Hulk",
-          description: "Caught in a gamma bomb explosion while trying to save the life of a teenager, Dr. Bruce Banner was transformed into the incredibly powerful creature called the Hulk. An all too often misunderstood hero, the angrier the Hulk gets, the stronger the Hulk gets.",
-          thumbnail: {
-              path: "http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0",
-              extension: "jpg"
-          },
-          img: 'http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0/standard_small.jpg'
-      }
-  ];
-  displayedColumns = ['image','id_Api', 'name', 'description'];
+  data: Heroe[] = [];
+  displayedColumns = ['image', 'description'];
   dataSource = this.data;
 
   @ViewChild(MatTable) table!: MatTable<any>
@@ -31,13 +21,17 @@ export class DataResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.charactersService.result$.subscribe((data)=> {
-        if(data.hasOwnProperty('name')){
+      //valido para que no me agregue un item vacio
+        if(data.name){
           this.data = [data];
+          console.log(this.data)
           this.table.renderRows();
         }
     })
   }
-
+  saveHero(){
+    this.charactersService.addHero(this.data[0]);
+  }
 }
 
 
