@@ -18,9 +18,22 @@ const schemaLogin = Joi.object({
     password: Joi.string().min(6).max(1024).required()
 })
 
+exports.getAllUsers = async(req,res)=>{
+    try{
+        const users = await User.find();
+        res.status(200).json(
+            users
+        )
+    }catch(e){
+        res.status(404).json({
+            error: e.message
+        })
+    }
+}
 exports.signup = async(req,res)=>{
     const {name,email,password} = req.body;
         //validate user
+        console.log(req.body)
         const {error} = schemaRegister.validate(req.body);
          
         if(error){
@@ -51,9 +64,6 @@ exports.signup = async(req,res)=>{
             usersRegistered: 0,
             heroes: []
         })
-        res.status(200).json(
-            {message: 'user creado sactifactoriamente',user}
-        )
     try{
         const savedUser = await user.save();
         res.status(200).json({
@@ -97,7 +107,6 @@ exports.updateUser = async(req,res)=>{
 
 exports.login = async(req,res)=>{
     const {email,password} = req.body;
-    console.log(req.body);
     //validations
     const {error} = schemaLogin.validate(req.body);
     if(error){
@@ -129,8 +138,9 @@ exports.login = async(req,res)=>{
         id: user._id
     },process.env.TOKEN_SECRET)
 
-    res.header('auth-token',token).json({
-        error: null,
-        data: {token}
+    res.header('autorizacion',token).json({
+        access_token:token
     })
 }
+
+

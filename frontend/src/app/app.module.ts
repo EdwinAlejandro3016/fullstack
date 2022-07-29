@@ -26,6 +26,7 @@ import {MatTableModule} from '@angular/material/table';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DataResultComponent } from './components/data-result/data-result.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { DataResultComponent } from './components/data-result/data-result.compon
     MatInputModule,
     MatTableModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

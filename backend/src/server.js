@@ -6,6 +6,7 @@ require('dotenv').config();
 
 //cors
 const cors = require('cors');
+const { verifyToken } = require('./middlewares/validate-token');
 var corsOptions = {
     origin: '*', // Reemplazar con dominio
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -25,7 +26,16 @@ mongoose.connect(uri)
 // Routes setup
 app.use('/api/auth',require('./routes/auth'));
 app.use('/api/heroes',require('./routes/superHero'));
-
+app.use('/api/users',require('./routes/user'));
+// app.get('/api/auth/profile',verifyToken,(req,res)=>{
+//     res.json({
+//         error: null,
+//         data: {
+//             title: 'mi ruta protegida',
+//             user: req.user
+//         }
+//     })
+// });
 const port = process.env.PORT || 5000;
 
 app.listen(port,()=>{

@@ -1,1 +1,15 @@
-<p>register works!</p>
+<div class="container">
+  <h2>Sing Up!</h2>
+  <form #form="ngForm" (ngSubmit)=" createUser(form)">
+    <mat-form-field>
+      <input matInput placeholder="Name" name="name" ngModel required>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="email" matInput placeholder="Email" name="email" required ngModel>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput placeholder=" Password" name="password" required ngModel>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Submit</button>
+  </form>
+</div>

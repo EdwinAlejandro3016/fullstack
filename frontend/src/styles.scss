@@ -6,6 +6,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 mat-cell{
   padding: 10px 0;
 }
+
+mat-form-field{
+  width: 100%;
+}
 button{
   width: 100%;
   display: block;
