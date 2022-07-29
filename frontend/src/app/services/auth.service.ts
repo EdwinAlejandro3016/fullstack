@@ -30,14 +30,8 @@ export class AuthService {
       token = '';
     }
 
-    this.http.get(`http://127.0.0.1:4200/api/auth/profile`,{headers: {
-      autorizacion: `a${token}`
-    }}).subscribe(res=>{
-      if(res){
-        console.log('siii')
-      }else{
-        console.log('nooo')
-      }
-    })
+    return this.http.get<User>(`http://127.0.0.1:4200/api/auth/profile`,{headers: {
+      autorizacion: `${token}`
+    }})
   }
 }

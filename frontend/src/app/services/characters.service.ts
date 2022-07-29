@@ -33,19 +33,27 @@ export class CharactersService {
   }
   //traer heroes guardados desde la base de datos
   getAllmyHeroes(){
+    localStorage.setItem('HEROES',JSON.stringify([]));
     const res = this.http.get<Heroe[]>(`http://127.0.0.1:4200/api/heroes/all`).subscribe(res=> {
       this.heroes.next(res);
+      //agregar superHeroes A localStorage
+      localStorage.setItem('HEROES',JSON.stringify(res));
     });
+
   }
   //eliminar heroe
   deleteHero(id:string){
     const res = this.http.delete<Heroe>(`http://127.0.0.1:4200/api/heroes/delete/${id}`).subscribe(res=>console.log(res))
   }
 
+
   //agregar heroe de la base de datos
   addHero(hero:Heroe){
+
     const res = this.http.post<Heroe>('http://127.0.0.1:4200/api/heroes/add',{
       tag: hero
-    }).subscribe(res=>console.log(res))
+    }).subscribe(res=>{
+      console.log(res)
+    })
   }
 }
