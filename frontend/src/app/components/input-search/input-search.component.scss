@@ -1,0 +1,20 @@
+.search-hero{
+  position: relative;
+  width: 90%;
+  margin: 15px auto;
+
+  input{
+    width: 100%;
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+  i{
+    position: absolute;
+    top: 5px;
+    right: 0;
+    cursor: pointer;
+  }
+}

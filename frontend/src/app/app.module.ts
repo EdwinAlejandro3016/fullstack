@@ -17,6 +17,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatInputModule} from '@angular/material/input';
+import { InputSearchComponent } from './components/input-search/input-search.component';
+import { DataHeroesComponent } from './components/data-heroes/data-heroes.component';
+import {MatTableModule} from '@angular/material/table';
+import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DataResultComponent } from './components/data-result/data-result.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +36,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     RegisterComponent,
     ProfileComponent,
     ProfileDetailComponent,
-    NavbarComponent
+    NavbarComponent,
+    InputSearchComponent,
+    DataHeroesComponent,
+    DataResultComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +50,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatGridListModule,
+    MatTabsModule,
+    MatInputModule,
+    MatTableModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

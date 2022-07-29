@@ -34,7 +34,7 @@ exports.addNewHero = async(req,res)=>{
         const newHeroDB =  new SuperHero(newHero);
         await newHeroDB.save();
         res.status(200).json({
-            newHeroDB
+            ...newHeroDB
         })
     } catch (error) {
         res.status(400).json({
@@ -56,9 +56,10 @@ exports.findHero = async(req,res)=>{
             newHero.name = e.name;
             newHero.description = e.description;
             newHero.thumbnail = e.thumbnail;
+            newHero.img = `${e.thumbnail.path}/standard_small.${e.thumbnail.extension}`;
         })
         res.status(200).json({
-            heroe: newHero
+            ...newHero
         })
     } catch (error) {
         res.status(400).json({

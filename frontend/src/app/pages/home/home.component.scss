@@ -1,0 +1,28 @@
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  padding: 15px 0 15px 0;
+  grid-gap: 10px;
+  .list-images-heroes{
+    h2{
+      text-align: center;
+    }
+    .hero-img{
+      width: 100%;
+      height: 200px;
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid 2px red;
+      padding: 15px 0 15px 0;
+      img{
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.container{
+  margin: 0 10px;
+}

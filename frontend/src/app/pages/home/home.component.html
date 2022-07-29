@@ -1,2 +1,25 @@
-<h2>HOME</h2>
-
+<div class="grid">
+  <div class="list-images-heroes">
+    <h2>My Heroes</h2>
+    <div class="hero-img">
+        <a href="/">
+          <img src="../../../favicon.ico" alt="">
+        </a>
+    </div>
+    <div class="hero-img">
+      <a href="/">
+        <img src="../../../favicon.ico" alt="">
+      </a>
+  </div>
+  </div>
+  <mat-tab-group class="container">
+    <mat-tab label="Resultados">
+      <app-input-search></app-input-search>
+      <app-data-result></app-data-result>
+    </mat-tab>
+    <mat-tab label="Heroes saved">
+      <app-input-search></app-input-search>
+      <app-data-heroes></app-data-heroes>
+    </mat-tab>
+  </mat-tab-group>
+</div>
