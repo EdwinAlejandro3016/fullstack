@@ -16,7 +16,7 @@ ng serve --proxy-config proxy.conf.json -o
 Este hara la conexion con el backend y arrancara nuestro servidor frontend
 
 //Funciones de la aplicacion
-Una vez cargador el servidor nos encontraremos en la pantalla de inicio la cual podemos ver sideBar para navegar a algunas rutas
+Una vez cargador el servidor nos dirijeromos al enlance de Home en la cual podemos ver sideBar para navegar a algunas rutas
 en la parte izquierda y en la parte derecha nos encontramos con una vista dividida por dos columnas
 la primera(izquierda) donde se iran mostrando las imagenes de los superheroes que se vayan guardando
 y en la parte derecha otra columna en donde podemos observar dos tabs:
