@@ -1,0 +1,17 @@
+//RENOMBRAR ESTE ARCHIVO A .env
+
+PORT=5001
+
+//TOKEN
+TOKEN_SECRET=tokenFullstack
+
+//DATABASE
+USER=marvel
+PASSWORD=kmxkx9xz2OjemO5Z
+DATABASE=fullstack
+
+//API MARVEL
+API_KEY=`87b1f141c448fe7b5be0e72755403e02`
+API="http://gateway.marvel.com"
+TS=3000
+HASH="f4fde41658cb452fe571b18769f44a7e"
