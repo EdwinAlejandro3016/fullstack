@@ -27,14 +27,14 @@ export class CharactersService {
 
   //buscar heroe por tag
   findHero(tag: string){
-    const res = this.http.get<Heroe>(`http://127.0.0.1:5001/api/heroes/find/${tag}`).subscribe(res=> {
+    const res = this.http.get<Heroe>(`http://127.0.0.1:4200/api/heroes/find/${tag}`).subscribe(res=> {
       this.result.next(res)
     });
   }
   //traer heroes guardados desde la base de datos
   getAllmyHeroes(){
     localStorage.setItem('HEROES',JSON.stringify([]));
-    const res = this.http.get<Heroe[]>(`http://127.0.0.1:5001/api/heroes/all`).subscribe(res=> {
+    const res = this.http.get<Heroe[]>(`http://127.0.0.1:4200/api/heroes/all`).subscribe(res=> {
       this.heroes.next(res);
       //agregar superHeroes A localStorage
       localStorage.setItem('HEROES',JSON.stringify(res));
@@ -43,14 +43,14 @@ export class CharactersService {
   }
   //eliminar heroe
   deleteHero(id:string){
-    const res = this.http.delete<Heroe>(`http://127.0.0.1:5001/api/heroes/delete/${id}`).subscribe(res=>console.log(res))
+    const res = this.http.delete<Heroe>(`http://127.0.0.1:4200/api/heroes/delete/${id}`).subscribe(res=>console.log(res))
   }
 
 
   //agregar heroe de la base de datos
   addHero(hero:Heroe){
 
-    const res = this.http.post<Heroe>('http://127.0.0.1:5001/api/heroes/add',{
+    const res = this.http.post<Heroe>('http://127.0.0.1:4200/api/heroes/add',{
       tag: hero
     }).subscribe(res=>{
       console.log(res)

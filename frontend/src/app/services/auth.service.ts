@@ -15,7 +15,7 @@ export class AuthService {
   }
 
   login(user:User){
-     this.http.post<Auth>(`http://127.0.0.1:5001/api/auth/login`,user).subscribe(rta=>{
+     this.http.post<Auth>(`http://127.0.0.1:4200/api/auth/login`,user).subscribe(rta=>{
       localStorage.setItem('TOKEN',rta.access_token);
       this.token = rta.access_token;
     })
@@ -30,7 +30,7 @@ export class AuthService {
       token = '';
     }
 
-    return this.http.get<User>(`http://127.0.0.1:5001/api/auth/profile`,{headers: {
+    return this.http.get<User>(`http://127.0.0.1:4200/api/auth/profile`,{headers: {
       autorizacion: `${token}`
     }})
   }
