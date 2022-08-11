@@ -12,12 +12,12 @@ export class UsersService {
   ) { }
 
   create(user:User){
-      this.http.post(`http://127.0.0.1:4200/api/auth/register`,user).subscribe(res=>{
+      this.http.post(`http://127.0.0.1:5001/api/auth/register`,user).subscribe(res=>{
       console.log(res)
     });
   }
   getAll(){
-     this.http.get<User[]>(`http://127.0.0.1:4200/api/users/all`)
+     this.http.get<User[]>(`http://127.0.0.1:5001/api/users/all`)
   }
 
 }
